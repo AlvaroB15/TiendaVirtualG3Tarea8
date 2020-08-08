@@ -7,6 +7,7 @@ public class Customer {
     private String id;
     private String name = "";
     private String address = "";
+    // private CustomerState state = new CreadoState();
     private CustomerState state;
 
 
@@ -52,4 +53,13 @@ public class Customer {
     public void printStatus(){
         state.printStatus();
     }
+
+    @Override
+    public String toString() {
+        return "Customer [address=" + address + ", id=" + id + ", name=" + name + ", state=" + state + "]";
+    }
+
+
+
+    
 }

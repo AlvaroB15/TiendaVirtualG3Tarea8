@@ -30,13 +30,23 @@ public class CustomerControllerImpl implements CustomerController {
     public void create(Context context) {
 
         Customer customer = context.bodyAsClass(Customer.class);
-        System.out.println("Cliente: " + customer);
+        System.out.println("Cliente: " + customer.toString());
+        System.out.println(customer.toString());
+
+        // Customer customer1 = customer;
+        // System.out.println(customer1.toString());
+        
+        // System.out.println(customer1.getAddress());
+
+
 
         // if (customer.getId() != null) {
         // throw new BadRequestResponse(String.format("Unable to create a new post with
         // existing id: %s", customer));
         // }
         // Aplicando state al customer
+
+
 
         Customer customer1 = new Customer();
         customer1.setAddress("address");
