@@ -2,6 +2,7 @@ package edu.patronesdiseno.srp.controllers.impl;
 
 import edu.patronesdiseno.srp.config.Paths;
 import edu.patronesdiseno.srp.controllers.OrderController;
+import edu.patronesdiseno.srp.models.Auto;
 import edu.patronesdiseno.srp.models.Delivery;
 import edu.patronesdiseno.srp.models.Moto;
 import edu.patronesdiseno.srp.models.Order;
@@ -13,6 +14,7 @@ import edu.patronesdiseno.srp.repositories.OrderRepository;
 import edu.patronesdiseno.srp.utils.OrderCourierDispatcher;
 
 import io.javalin.http.Context;
+import io.javalin.core.PathSegment.Normal;
 import io.javalin.http.BadRequestResponse;
 import io.javalin.http.NotFoundResponse;
 
@@ -72,6 +74,22 @@ public class OrderControllerImpl implements OrderController {
         fOrder.printStatus();
         fOrder.nextState();
         fOrder.printStatus();
+
+
+
+        Auto auto1 = new Auto();
+        NormalOrder nOrder = new NormalOrder();
+        nOrder.setVehiculo(auto1);
+        System.out.println(nOrder.detalleVehiculo());
+
+        System.out.println("Log Status Order");
+        OrderedState ordered1 = new OrderedState();
+        nOrder.setState(ordered1);
+        nOrder.printStatus();
+        nOrder.nextState();
+        nOrder.printStatus();
+        nOrder.nextState();
+        nOrder.printStatus();
 
 
         

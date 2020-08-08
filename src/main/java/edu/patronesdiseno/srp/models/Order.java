@@ -5,6 +5,7 @@ import java.util.List;
 import edu.patronesdiseno.srp.models.interfaces.IDiscount;
 import edu.patronesdiseno.srp.models.interfaces.IOrderItem;
 import edu.patronesdiseno.srp.models.interfaces.ITransporte;
+import edu.patronesdiseno.srp.models.interfaces.IVehiculo;
 import edu.patronesdiseno.srp.models.patterns.OrderState;
 
 public class Order {
@@ -17,6 +18,7 @@ public class Order {
     private String customer;
 
     protected ITransporte transporte;
+    protected IVehiculo vehiculo;
 
     private List<IOrderItem> orderItems;
 
@@ -100,6 +102,9 @@ public class Order {
         return discount;
     }
 
+
+
+
     public void setTransporte(ITransporte transporte){
         this.transporte = transporte;
     }
@@ -111,6 +116,21 @@ public class Order {
     public Double calculaTiempoLlegada(){
         return null;
     }
+
+    public void setVehiculo(IVehiculo vehiculo){
+        this.vehiculo = vehiculo;
+    }
+
+    public IVehiculo getVehiculo(){
+        return this.vehiculo;
+    }
+
+    public String detalleVehiculo(){
+        return "";
+    }
+
+
+
 
     public void setState(OrderState state){
         this.state = state;
