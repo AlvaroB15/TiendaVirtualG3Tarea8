@@ -76,7 +76,7 @@ public class OrderControllerImpl implements OrderController {
         fOrder.printStatus();
 
 
-
+        // pregunta 1
         Auto auto1 = new Auto();
         NormalOrder nOrder = new NormalOrder();
         nOrder.setVehiculo(auto1);
@@ -90,6 +90,23 @@ public class OrderControllerImpl implements OrderController {
         nOrder.printStatus();
         nOrder.nextState();
         nOrder.printStatus();
+
+
+        // pregunta 2
+        fOrder.sethasDelivery(true);
+        //Pregunta 2
+        System.out.println("Log Status new Order");
+        OrderedState ordereds = new OrderedState();
+        fOrder.setState(ordereds);
+        fOrder.printStatus();
+        fOrder.nextState();
+        fOrder.printStatus();
+        fOrder.nextState();
+        fOrder.printStatus();       
+        fOrder.nextState();
+        fOrder.printStatus();
+        fOrder.nextState();
+        fOrder.printStatus();
 
 
         

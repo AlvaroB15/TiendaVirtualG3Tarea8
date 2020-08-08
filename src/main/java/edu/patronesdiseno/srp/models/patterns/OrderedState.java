@@ -8,7 +8,9 @@ public class OrderedState implements OrderState {
 
     @Override
     public void next(Order order) {
-        order.setState(new DeliveredState());
+        //order.setState(new DeliveredState());
+        //Pregunta 2
+        order.setState(new PaidderOrder());
     }
 
     @Override

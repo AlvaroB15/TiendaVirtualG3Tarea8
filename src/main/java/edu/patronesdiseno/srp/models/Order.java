@@ -16,6 +16,7 @@ public class Order {
     private String courier;
     private Double discount;
     private String customer;
+    public boolean hasDelivery;
 
     protected ITransporte transporte;
     protected IVehiculo vehiculo;
@@ -150,5 +151,13 @@ public class Order {
 
     public void printStatus() {
         state.printStatus();
+    }
+
+    public boolean gethasDelivery(){
+        return this.hasDelivery;
+    }
+ 
+    public void sethasDelivery(boolean hasDelivery){
+        this.hasDelivery=hasDelivery;
     }
 }
