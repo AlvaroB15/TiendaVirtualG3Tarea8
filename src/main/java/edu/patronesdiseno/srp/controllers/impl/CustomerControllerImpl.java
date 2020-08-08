@@ -38,17 +38,23 @@ public class CustomerControllerImpl implements CustomerController {
         // }
         // Aplicando state al customer
 
+        Customer customer1 = new Customer();
+        customer1.setAddress("address");
+        customer1.setName("name");
+
         CustomerState created = new CreadoState();
-        customer.setState(created);
-        customer.printStatus();
-        customer.next();
-        customer.printStatus();
-        customer.next();
-        customer.printStatus();
-        customer.next();
-        customer.printStatus();
-        customer.next();
-        customer.printStatus();
+        customer1.setState(created);
+        customer1.printStatus();
+        customer1.next();
+        customer1.printStatus();
+        customer1.next();
+        customer1.printStatus();
+        customer1.next();
+        customer1.printStatus();
+        customer1.next();
+        customer1.printStatus();
+
+        System.out.println("ANTES");
 
         customerRepository.create(customer);
         context.status(HttpStatus.CREATED_201).header(HttpHeader.LOCATION.name(),

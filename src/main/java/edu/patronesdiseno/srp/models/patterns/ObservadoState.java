@@ -6,13 +6,12 @@ public class ObservadoState implements CustomerState{
     public ObservadoState(){}
     @Override
     public void next(Customer customer) {
-        // TODO Auto-generated method stub
-        if (customer.getName()!=null && customer.getAddress()!=null) {
+        if (customer.getName()!="" && customer.getAddress()!="") {
             customer.setState(new ActivoState());
         }
     }
     
     public void printStatus(){
-        System.out.println("El empleado esta en estado observado");
+        System.out.println("El empleado esta en estado observado (ObservadoState)");
     }
 }

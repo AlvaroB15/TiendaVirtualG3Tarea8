@@ -5,9 +5,10 @@ import edu.patronesdiseno.srp.models.patterns.CustomerState;
 
 public class Customer {
     private String id;
-    private String name;
-    private String address;
+    private String name = "";
+    private String address = "";
     private CustomerState state;
+
 
     public String getId() {
         return id;
@@ -36,6 +37,9 @@ public class Customer {
     public CustomerState getState(){
         return state;
     }
+
+
+    //
 
     public void setState(CustomerState state){
         this.state=state;

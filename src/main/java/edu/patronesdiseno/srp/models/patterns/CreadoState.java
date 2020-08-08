@@ -6,10 +6,9 @@ public class CreadoState implements CustomerState{
     public CreadoState(){}
     @Override
     public void next(Customer customer) {
-        // TODO Auto-generated method stub
         customer.setState(new ActivoState());
     }
     public void printStatus(){
-        System.out.println("El empleado fue generado");
+        System.out.println("El empleado fue generado. (CreadoState)");
     }
 }
