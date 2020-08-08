@@ -1,6 +1,7 @@
 package edu.patronesdiseno.srp.repositories.impl;
 
 import edu.patronesdiseno.srp.models.Customer;
+import edu.patronesdiseno.srp.models.patterns.CreadoState;
 import edu.patronesdiseno.srp.repositories.CustomerRepository;
 
 import java.util.List;
@@ -32,6 +33,7 @@ public class CustomerRepositoryImpl implements CustomerRepository {
     public void create(Customer customer) {
         System.out.println("entrando: " + customer);
         customer.setId((new ObjectId()).toString());
+        //customer.setState(new CreadoState());
         customers.insertOne(customer);
     }
 

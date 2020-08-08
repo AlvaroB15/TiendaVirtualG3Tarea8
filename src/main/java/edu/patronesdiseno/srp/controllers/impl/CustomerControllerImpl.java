@@ -4,14 +4,18 @@ import edu.patronesdiseno.srp.config.Paths;
 //import edu.patronesdiseno.srp.config.Paths;
 import edu.patronesdiseno.srp.controllers.CustomerController;
 import edu.patronesdiseno.srp.models.Customer;
+import edu.patronesdiseno.srp.models.patterns.CreadoState;
+import edu.patronesdiseno.srp.models.patterns.CustomerState;
 import edu.patronesdiseno.srp.repositories.CustomerRepository;
 import io.javalin.http.Context;
 import io.javalin.http.BadRequestResponse;
 import io.javalin.http.NotFoundResponse;
+
+import java.util.List;
+
 //import org.bson.types.ObjectId;
 import org.eclipse.jetty.http.HttpHeader;
 import org.eclipse.jetty.http.HttpStatus;
-
 
 public class CustomerControllerImpl implements CustomerController {
     private static final String ID = "id";
@@ -26,15 +30,45 @@ public class CustomerControllerImpl implements CustomerController {
     public void create(Context context) {
 
         Customer customer = context.bodyAsClass(Customer.class);
-        System.out.println("Cliente: " + customer);
+        System.out.println("Cliente: " + customer.toString());
+        System.out.println(customer.toString());
 
-        //if (customer.getId() != null) {
-        //    throw new BadRequestResponse(String.format("Unable to create a new post with existing id: %s", customer));
-        //}
+        // Customer customer1 = customer;
+        // System.out.println(customer1.toString());
+        
+        // System.out.println(customer1.getAddress());
+
+
+
+        // if (customer.getId() != null) {
+        // throw new BadRequestResponse(String.format("Unable to create a new post with
+        // existing id: %s", customer));
+        // }
+        // Aplicando state al customer
+
+
+
+        Customer customer1 = new Customer();
+        customer1.setAddress("address");
+        customer1.setName("name");
+
+        CustomerState created = new CreadoState();
+        customer1.setState(created);
+        customer1.printStatus();
+        customer1.next();
+        customer1.printStatus();
+        customer1.next();
+        customer1.printStatus();
+        customer1.next();
+        customer1.printStatus();
+        customer1.next();
+        customer1.printStatus();
+
+        System.out.println("ANTES");
 
         customerRepository.create(customer);
-        context.status(HttpStatus.CREATED_201)
-                .header(HttpHeader.LOCATION.name(), Paths.formatPostLocation(customer.getId().toString()));
+        context.status(HttpStatus.CREATED_201).header(HttpHeader.LOCATION.name(),
+                Paths.formatPostLocation(customer.getId().toString()));
 
     }
 
@@ -74,5 +108,5 @@ public class CustomerControllerImpl implements CustomerController {
         customerRepository.update(customer, id);
 
     }
-    
+
 }
