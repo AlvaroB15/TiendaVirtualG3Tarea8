@@ -16,6 +16,7 @@ import io.javalin.http.Context;
 import io.javalin.http.BadRequestResponse;
 import io.javalin.http.NotFoundResponse;
 
+import java.io.Console;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,6 +50,15 @@ public class OrderControllerImpl implements OrderController {
         items.add(oi1);
         items.add(oi2);
         order.setOrderItems(items);
+        
+        System.out.println("---------------iterator------------------");
+        System.out.println("---------------primero------------------");
+        OrderIterator iterator = order.getIterator();
+        IOrderItem item  = iterator.primero();
+        System.out.println("\nid : " + item.getIdProduct() +"\ncantidad: " + item.getQuantity() +"\nprecio : " + item.getPrice() + "\nprecio total: " + order.calculateTotalOrder(null));
+        System.out.println("---------------siguiente------------------");
+        IOrderItem item2  = iterator.siguiente();
+        System.out.println("\nid : " + item2.getIdProduct() +"\ncantidad: " + item2.getQuantity() +"\nprecio : " + item2.getPrice() + "\nprecio total: " + order.calculateTotalOrder(null));
 
         DiscountFactory factoryDiscount = new DiscountFactory();
         IDiscount discount = factoryDiscount.createDiscount(DiscountFactory.DISCOUNT_COUPON);

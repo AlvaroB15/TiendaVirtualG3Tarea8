@@ -5,9 +5,11 @@ import java.util.List;
 import edu.patronesdiseno.srp.models.interfaces.IDiscount;
 import edu.patronesdiseno.srp.models.interfaces.IOrderItem;
 import edu.patronesdiseno.srp.models.interfaces.ITransporte;
+import edu.patronesdiseno.srp.models.patterns.Iagregado;
+import edu.patronesdiseno.srp.models.patterns.OrderIterator;
 import edu.patronesdiseno.srp.models.patterns.OrderState;
 
-public class Order {
+public class Order implements Iagregado {
 
     private String id;
     private Double amount;
@@ -23,14 +25,14 @@ public class Order {
     private OrderState state;
 
     public List<IOrderItem> getOrderItems() {
-        //List<IOrderItem> ordersItems = new ArrayList<>();
+        // List<IOrderItem> ordersItems = new ArrayList<>();
         /*
          * Get logic, ORM, SQL
          */
         return orderItems;
     }
 
-    public void setOrderItems(List<IOrderItem> orderItems) {
+    public void setOrderItems(final List<IOrderItem> orderItems) {
         this.orderItems = orderItems;
     }
 
@@ -38,11 +40,11 @@ public class Order {
         return amount;
     }
 
-    public void setAmount(Double amount) {
+    public void setAmount(final Double amount) {
         this.amount = amount;
     }
 
-    public Double calculateTotalOrder(IDiscount iDiscount) {
+    public Double calculateTotalOrder(final IDiscount iDiscount) {
         final List<IOrderItem> ordersItems = this.getOrderItems();
 
         Double totalPrice = 0.0;
@@ -51,11 +53,10 @@ public class Order {
             totalPrice += item.getPrice();
         }
 
-        if (iDiscount != null)   {
+        if (iDiscount != null) {
             this.discount = iDiscount.getDiscount();
             this.amount = totalPrice - this.discount;
-        }
-        else{
+        } else {
             this.discount = 0.0;
             this.amount = totalPrice;
         }
@@ -63,12 +64,11 @@ public class Order {
         return totalPrice;
     }
 
-
     public String getAddress() {
         return address;
     }
 
-    public void setAddress(String address) {
+    public void setAddress(final String address) {
         this.address = address;
     }
 
@@ -76,7 +76,7 @@ public class Order {
         return customer;
     }
 
-    public void setCustomer(String customer) {
+    public void setCustomer(final String customer) {
         this.customer = customer;
     }
 
@@ -84,7 +84,7 @@ public class Order {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(final String id) {
         this.id = id;
     }
 
@@ -92,7 +92,7 @@ public class Order {
         return courier;
     }
 
-    public void setCourier(String courier) {
+    public void setCourier(final String courier) {
         this.courier = courier;
     }
 
@@ -100,23 +100,23 @@ public class Order {
         return discount;
     }
 
-    public void setTransporte(ITransporte transporte){
+    public void setTransporte(final ITransporte transporte) {
         this.transporte = transporte;
     }
 
-    public ITransporte getTransporte(){
+    public ITransporte getTransporte() {
         return this.transporte;
     }
 
-    public Double calculaTiempoLlegada(){
+    public Double calculaTiempoLlegada() {
         return null;
     }
 
-    public void setState(OrderState state){
+    public void setState(final OrderState state) {
         this.state = state;
     }
 
-    public OrderState getState(){
+    public OrderState getState() {
         return this.state;
     }
 
@@ -131,4 +131,11 @@ public class Order {
     public void printStatus() {
         state.printStatus();
     }
+
+    @Override
+    public OrderIterator getIterator() {
+        return new OrderIterator(this);
+    }
+
+
 }
