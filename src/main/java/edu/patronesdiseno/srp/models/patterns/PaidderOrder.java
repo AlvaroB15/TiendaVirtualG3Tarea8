@@ -9,23 +9,24 @@ public class PaidderOrder implements OrderState {
     @Override
     public void next(Order order) {
         //Pregunta 2
-        if(order.hasDelivery = true){
+        if(order.hasDelivery == true){
             order.setState(new DeliveredState());
         }else{
-               order.setState(new FinalizadoState());
+            order.setState(new FinalizadoState());
         }
     }
 
     @Override
     public void prev(Order order) {
-        System.out.println("Segundo Estado ");
-        //Pregunta 2
-        order.setState(new OrderedState());
+    //     System.out.println("Segundo Estado ");
+    //     //Pregunta 2
+    //     order.setState(new OrderedState());
     }
 
     @Override
     public void printStatus() {
-        System.out.println("Gestion de Pedido de Orden delivery o presencial");
+        System.out.println("-----------------------");
+        System.out.println("Gestion de Pedido de Orden delivery o presencial. (PaidderOrder)");
 
     }
     

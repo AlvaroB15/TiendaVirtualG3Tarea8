@@ -15,11 +15,12 @@ public class OrderedState implements OrderState {
 
     @Override
     public void prev(Order order) {
-        System.out.println("The package is in its root state.");
+        // System.out.println("The package is in its root state.");
     }
 
     @Override
     public void printStatus() {
-        System.out.println("Order ordered, not delivered to the address yet.");
+        System.out.println("-----------------------");
+        System.out.println("Order ordered, not delivered to the address yet. (OrderedState)");
     }
 }

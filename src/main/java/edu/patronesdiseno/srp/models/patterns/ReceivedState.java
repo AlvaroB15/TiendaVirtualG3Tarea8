@@ -8,16 +8,17 @@ public class ReceivedState implements OrderState {
 
     @Override
     public void next(Order order) {
-        System.out.println("This order is already received by a client.");
+        order.setState(new FinalizadoState());
     }
 
     @Override
     public void prev(Order order) {
-        order.setState(new DeliveredState());
+        // order.setState(new DeliveredState());
     }
 
     @Override
     public void printStatus(){
-        System.out.println("Order Received!");
+        System.out.println("-----------------------");
+        System.out.println("Order Received!. (ReceivedState)");
     }
 }

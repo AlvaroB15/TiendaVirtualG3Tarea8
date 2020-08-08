@@ -15,11 +15,12 @@ public class DeliveredState implements OrderState {
     public void prev(Order order) {
         // order.setState(new OrderedState());
         //Pregunta 2
-        order.setState(new PaidderOrder());
+        // order.setState(new PaidderOrder());
     }
 
     @Override
     public void printStatus(){
-        System.out.println("Delivered!");
+        System.out.println("-----------------------");
+        System.out.println("Delivered!. (DeliveredState)");
     }
 }

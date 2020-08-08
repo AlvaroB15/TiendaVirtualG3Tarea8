@@ -19,7 +19,8 @@ public class FinalizadoState implements OrderState {
 
     @Override
     public void printStatus() {
-        System.out.println("Finalizado");
+        System.out.println("-----------------------");
+        System.out.println("Finalizado. (FinalizadoState)");
     }
 
 }

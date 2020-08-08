@@ -77,12 +77,13 @@ public class OrderControllerImpl implements OrderController {
 
 
         // pregunta 1
+        System.out.println("----------------------------PREGUNTA 1-----------------------      ");
         Auto auto1 = new Auto();
         NormalOrder nOrder = new NormalOrder();
         nOrder.setVehiculo(auto1);
         System.out.println(nOrder.detalleVehiculo());
 
-        System.out.println("Log Status Order");
+        System.out.println("Log Status Order - question1");
         OrderedState ordered1 = new OrderedState();
         nOrder.setState(ordered1);
         nOrder.printStatus();
@@ -93,20 +94,23 @@ public class OrderControllerImpl implements OrderController {
 
 
         // pregunta 2
-        fOrder.sethasDelivery(true);
+        System.out.println("----------------------------PREGUNTA 2-----------------------      ");
+        fOrder.sethasDelivery(false);
         //Pregunta 2
-        System.out.println("Log Status new Order");
+        System.out.println("Log Status new Order - question2");
         OrderedState ordereds = new OrderedState();
         fOrder.setState(ordereds);
         fOrder.printStatus();
         fOrder.nextState();
         fOrder.printStatus();
         fOrder.nextState();
-        fOrder.printStatus();       
-        fOrder.nextState();
-        fOrder.printStatus();
-        fOrder.nextState();
-        fOrder.printStatus();
+        fOrder.printStatus();   
+
+        
+        // fOrder.nextState();
+        // fOrder.printStatus();
+        // fOrder.nextState();
+        // fOrder.printStatus();
 
 
         
