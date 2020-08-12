@@ -93,10 +93,10 @@ public class OrderControllerImpl implements OrderController {
         nOrder.printStatus();
 
 
-        // pregunta 2
         System.out.println("----------------------------PREGUNTA 2-----------------------      ");
-        fOrder.sethasDelivery(false);
-        //Pregunta 2
+        // fOrder.sethasDelivery(false);
+        fOrder.sethasDelivery(true);
+
         System.out.println("Log Status new Order - question2");
         OrderedState ordereds = new OrderedState();
         fOrder.setState(ordereds);
@@ -107,10 +107,10 @@ public class OrderControllerImpl implements OrderController {
         fOrder.printStatus();   
 
         
-        // fOrder.nextState();
-        // fOrder.printStatus();
-        // fOrder.nextState();
-        // fOrder.printStatus();
+        fOrder.nextState();
+        fOrder.printStatus();
+        fOrder.nextState();
+        fOrder.printStatus();
 
 
         

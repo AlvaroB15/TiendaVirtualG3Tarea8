@@ -11,10 +11,10 @@ public class ReceivedState implements OrderState {
         order.setState(new FinalizadoState());
     }
 
-    @Override
-    public void prev(Order order) {
-        // order.setState(new DeliveredState());
-    }
+    // @Override
+    // public void prev(Order order) {
+    //     // order.setState(new DeliveredState());
+    // }
 
     @Override
     public void printStatus(){

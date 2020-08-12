@@ -12,10 +12,10 @@ public class FinalizadoState implements OrderState {
         System.out.println("This order is already received by a client.");
     }
 
-    @Override
-    public void prev(Order order) {
-        // order.setState(new ReceivedState());
-    }
+    // @Override
+    // public void prev(Order order) {
+    //     // order.setState(new ReceivedState());
+    // }
 
     @Override
     public void printStatus() {

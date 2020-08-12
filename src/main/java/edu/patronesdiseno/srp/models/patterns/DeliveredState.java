@@ -11,12 +11,12 @@ public class DeliveredState implements OrderState {
         order.setState(new ReceivedState());
     }
 
-    @Override
-    public void prev(Order order) {
-        // order.setState(new OrderedState());
-        //Pregunta 2
-        // order.setState(new PaidderOrder());
-    }
+    // @Override
+    // public void prev(Order order) {
+    //     // order.setState(new OrderedState());
+    //     //Pregunta 2
+    //     // order.setState(new PaidderOrder());
+    // }
 
     @Override
     public void printStatus(){

@@ -2,9 +2,9 @@ package edu.patronesdiseno.srp.models.patterns;
 
 import edu.patronesdiseno.srp.models.Order;
 
-public class PaidderOrder implements OrderState {
+public class PaidderState implements OrderState {
 
-    public PaidderOrder(){}
+    public PaidderState(){}
 
     @Override
     public void next(Order order) {
@@ -16,17 +16,17 @@ public class PaidderOrder implements OrderState {
         }
     }
 
-    @Override
-    public void prev(Order order) {
-    //     System.out.println("Segundo Estado ");
-    //     //Pregunta 2
-    //     order.setState(new OrderedState());
-    }
+    // @Override
+    // public void prev(Order order) {
+    // //     System.out.println("Segundo Estado ");
+    // //     //Pregunta 2
+    // //     order.setState(new OrderedState());
+    // }
 
     @Override
     public void printStatus() {
         System.out.println("-----------------------");
-        System.out.println("Gestion de Pedido de Orden delivery o presencial. (PaidderOrder)");
+        System.out.println("Gestion de Pedido de Orden delivery o presencial. (PaidderState)");
 
     }
     

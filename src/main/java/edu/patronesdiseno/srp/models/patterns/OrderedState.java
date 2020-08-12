@@ -10,13 +10,13 @@ public class OrderedState implements OrderState {
     public void next(Order order) {
         //order.setState(new DeliveredState());
         //Pregunta 2
-        order.setState(new PaidderOrder());
+        order.setState(new PaidderState());
     }
 
-    @Override
-    public void prev(Order order) {
-        // System.out.println("The package is in its root state.");
-    }
+    // @Override
+    // public void prev(Order order) {
+    //     // System.out.println("The package is in its root state.");
+    // }
 
     @Override
     public void printStatus() {

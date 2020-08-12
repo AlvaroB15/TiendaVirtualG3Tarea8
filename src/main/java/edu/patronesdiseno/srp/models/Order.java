@@ -118,6 +118,7 @@ public class Order {
         return null;
     }
 
+
     public void setVehiculo(IVehiculo vehiculo){
         this.vehiculo = vehiculo;
     }
@@ -142,9 +143,9 @@ public class Order {
         return this.state;
     }
 
-    public void previousState() {
-        state.prev(this);
-    }
+    // public void previousState() {
+    //     state.prev(this);
+    // }
 
     public void nextState() {
         state.next(this);
@@ -153,6 +154,8 @@ public class Order {
     public void printStatus() {
         state.printStatus();
     }
+
+
 
     public boolean gethasDelivery(){
         return this.hasDelivery;
