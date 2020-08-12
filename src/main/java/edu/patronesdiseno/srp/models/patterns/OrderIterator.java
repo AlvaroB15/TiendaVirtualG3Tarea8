@@ -13,7 +13,7 @@ public class OrderIterator implements IteratorO {
         this.list=orden.getOrderItems();
         this.posicion=0;
     }
-    
+
     @Override
     public IOrderItem primero(){
         if(list.get(0) != null) {
@@ -39,8 +39,8 @@ public class OrderIterator implements IteratorO {
 
     @Override
     public boolean haymas() {
-
-        return   posicion<list.size();
+        System.out.println("posicion: "+posicion+"cantidad  de lista: "+ (list.size()-1));
+        return   posicion<(list.size()-1);
     }
     
 }   

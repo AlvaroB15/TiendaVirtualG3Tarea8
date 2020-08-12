@@ -5,6 +5,7 @@ import edu.patronesdiseno.srp.controllers.OrderController;
 import edu.patronesdiseno.srp.models.Delivery;
 import edu.patronesdiseno.srp.models.Moto;
 import edu.patronesdiseno.srp.models.Order;
+import edu.patronesdiseno.srp.models.orderOrdenador;
 import edu.patronesdiseno.srp.models.impl.OrderItemInternet;
 import edu.patronesdiseno.srp.models.interfaces.IDiscount;
 import edu.patronesdiseno.srp.models.interfaces.IOrderItem;
@@ -43,23 +44,42 @@ public class OrderControllerImpl implements OrderController {
         OrderCourierDispatcher orderCourierDispatcher = new OrderCourierDispatcher(order);
         String bestCourier = orderCourierDispatcher.getBestCourier();
         order.setCourier(bestCourier);
-
+        
         List<IOrderItem> items = new ArrayList<>();
         OrderItemInternet oi1 = new OrderItemInternet( "P01010034", 1, 400.90);
         OrderItemInternet oi2 = new OrderItemInternet( "P01010025", 1, 600.90);
         items.add(oi1);
         items.add(oi2);
         order.setOrderItems(items);
-        
-        System.out.println("---------------iterator------------------");
+
+
+        System.out.println("---------------------------------------iterator------------------------------------------------------------\n\n");
+        orderOrdenador order1 = new orderOrdenador();
+        order1.setOrderItems(items);
+
         System.out.println("---------------primero------------------");
-        OrderIterator iterator = order.getIterator();
+        OrderIterator iterator = order1.getIterator();
         IOrderItem item  = iterator.primero();
-        System.out.println("\nid : " + item.getIdProduct() +"\ncantidad: " + item.getQuantity() +"\nprecio : " + item.getPrice() + "\nprecio total: " + order.calculateTotalOrder(null));
+        System.out.println("\nid : " + item.getIdProduct() +"\ncantidad: " + item.getQuantity() +"\nprecio : " + item.getPrice() + "\nprecio total: " + order1.calculateTotalOrder(null));
+        System.out.println("---------------¿Hay mas?------------------");
+            if(iterator.haymas()){
+                System.out.println("->SI  ");
+            }else{
+                System.out.println("->NO  ");
+            }
+        System.out.println("---------------actual------------------");
+        IOrderItem item1 = iterator.actual();
+        System.out.println("\nid : " + item1.getIdProduct() +"\ncantidad: " + item1.getQuantity() +"\nprecio : " + item1.getPrice() + "\nprecio total: " + order1.calculateTotalOrder(null));
         System.out.println("---------------siguiente------------------");
         IOrderItem item2  = iterator.siguiente();
-        System.out.println("\nid : " + item2.getIdProduct() +"\ncantidad: " + item2.getQuantity() +"\nprecio : " + item2.getPrice() + "\nprecio total: " + order.calculateTotalOrder(null));
-
+        System.out.println("\nid : " + item2.getIdProduct() +"\ncantidad: " + item2.getQuantity() +"\nprecio : " + item2.getPrice() + "\nprecio total: " + order1.calculateTotalOrder(null));
+        System.out.println("---------------¿Hay mas?------------------");
+            if(iterator.haymas()){
+                System.out.println("->SI  ");
+            }else{
+                System.out.println("->NO  ");
+            }
+        /**-------------------------------------------------------------------------------------------------------------------------------------------- */
         DiscountFactory factoryDiscount = new DiscountFactory();
         IDiscount discount = factoryDiscount.createDiscount(DiscountFactory.DISCOUNT_COUPON);
         //IDiscount discount = factoryDiscount.createDiscount(DiscountFactory.DISCOUNT_ANNIVERSARY);

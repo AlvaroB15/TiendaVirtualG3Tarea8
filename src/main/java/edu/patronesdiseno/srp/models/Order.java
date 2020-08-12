@@ -9,7 +9,7 @@ import edu.patronesdiseno.srp.models.patterns.Iagregado;
 import edu.patronesdiseno.srp.models.patterns.OrderIterator;
 import edu.patronesdiseno.srp.models.patterns.OrderState;
 
-public class Order implements Iagregado {
+public class Order{
 
     private String id;
     private Double amount;
@@ -132,10 +132,6 @@ public class Order implements Iagregado {
         state.printStatus();
     }
 
-    @Override
-    public OrderIterator getIterator() {
-        return new OrderIterator(this);
-    }
-
+   
 
 }
